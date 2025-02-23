@@ -1,5 +1,5 @@
 import { Routes as RouterRoutes, Route } from "react-router";
-import HomePage from "./pages/HomePage";
+import HomePage from "./features/home/page/HomePage";
 
 export type RouteProps = {
   path: string;
