@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import KeyVisual from "../components/KeyVisual";
 import DefaultLayout from "../../../components/layouts/DefaultLayout";
 

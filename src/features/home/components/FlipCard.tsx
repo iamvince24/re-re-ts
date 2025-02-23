@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { Box } from "@mui/system";
+import styled from "@emotion/styled";
 import Card from "@mui/material/Card";
-
-const AppImgWebp = new URL("@/assets/img/app.webp", import.meta.url).href;
+import AppImgWebp from "@/assets/img/app.webp";
 
 export default function FlipCard() {
   const [scrollY, setScrollY] = useState(100);
@@ -42,41 +41,40 @@ export default function FlipCard() {
   }, []);
 
   return (
-    <>
-      <Box
-        sx={{
-          width: "80%",
-          background: "rgb(200, 200, 200, 0.05)",
-          borderRadius: "5px",
-          marginTop: "40px",
-          marginBottom: "150px",
-          position: "relative",
-          boxShadow: "0px 0px 50px 10px rgba(200, 200, 200, 0.2)",
-
-          transform: `perspective(1000px) rotateX(${perspectiveValue}deg) scale(${scale})`,
-          transformOrigin: "center bottom",
-          transition: "transform 0.5s ease, margin-top 0.5s ease",
-
-          willChange: "transform",
-
-          "@media (max-width:1000px)": {
-            marginTop: "50px",
-          },
-        }}
-      >
-        <Card
-          sx={{
-            width: "100%",
-            aspectRatio: "72/45",
-            backgroundImage: `url(${AppImgWebp})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundColor: "transparent",
-            boxShadow: "none",
-          }}
-        />
-      </Box>
-    </>
+    <FlipContainer perspectiveValue={perspectiveValue} scale={scale}>
+      <StyledCard />
+    </FlipContainer>
   );
 }
+
+const FlipContainer = styled.div<{ perspectiveValue: number; scale: number }>`
+  width: 80%;
+  background: rgb(200, 200, 200, 0.05);
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 150px;
+  position: relative;
+  box-shadow: 0px 0px 50px 10px rgba(200, 200, 200, 0.2);
+
+  transform: perspective(1000px)
+    rotateX(${(props) => props.perspectiveValue}deg)
+    scale(${(props) => props.scale});
+  transform-origin: center bottom;
+  transition: transform 0.5s ease, margin-top 0.5s ease;
+  will-change: transform;
+
+  @media (max-width: 1000px) {
+    margin-top: 50px;
+  }
+`;
+
+const StyledCard = styled(Card)`
+  width: 100%;
+  aspect-ratio: 72/45;
+  background-image: url(${AppImgWebp});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  box-shadow: none;
+`;
