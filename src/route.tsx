@@ -1,5 +1,5 @@
-import App from "./App";
 import { Routes as RouterRoutes, Route } from "react-router";
+import HomePage from "./pages/HomePage";
 
 export type RouteProps = {
   path: string;
@@ -7,7 +7,7 @@ export type RouteProps = {
 };
 
 const routesProps: { [routeKey: string]: RouteProps } = {
-  home: { path: "/", element: <App /> },
+  //   home: { path: "/", element: <HomePage /> },
 };
 
 const Routes: React.FC = () => {
@@ -18,7 +18,7 @@ const Routes: React.FC = () => {
 
   return (
     <RouterRoutes>
-      <Route index element={<App />} />
+      <Route index element={<HomePage />} />
       {Object.entries(routesProps).map(([routeKey, routeProps]) => (
         <Route
           key={routeKey}
