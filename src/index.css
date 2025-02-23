@@ -35,8 +35,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background-color: var(--secondary-color);
-  background-image: url("./assets/img/noise_white.png");
+  /* background-color: var(--secondary-color);
+  background-image: url("./assets/img/noise_white.png"); */
 }
 
 h1 {

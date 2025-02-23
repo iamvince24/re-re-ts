@@ -3,11 +3,11 @@ import { Theme, useTheme } from "@mui/material/styles";
 import styled from "@emotion/styled";
 import FlipCard from "./FlipCard";
 
-const KeyVisual: React.FC = () => {
+const KeyVisualSection: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <KeyVisualSection>
+    <KeyVisualSectionContainer>
       <IntroductionSection>
         <MainTitle color="primary">
           Record and Review <br />
@@ -28,11 +28,11 @@ const KeyVisual: React.FC = () => {
         </StyledButton>
       </IntroductionSection>
       <FlipCard />
-    </KeyVisualSection>
+    </KeyVisualSectionContainer>
   );
 };
 
-const KeyVisualSection = styled(Box)`
+const KeyVisualSectionContainer = styled(Box)`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -100,4 +100,4 @@ const StyledButton = styled(Button)<{ theme: Theme }>`
   margin: 0px 0px 30px;
 `;
 
-export default KeyVisual;
+export default KeyVisualSection;
